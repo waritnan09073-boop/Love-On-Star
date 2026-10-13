@@ -337,7 +337,7 @@ async function sendChat(){
   list[loadingIndex]={from:"bot",text:data.reply,time:new Date().toISOString()};
   persist();renderChat();
  }catch(error){
-  list[loadingIndex]={from:"bot",text:"ขอโทษ นะตอนนี้มีคนใช้งานน้อง Ai โมเดลนี้เยอะมากๆเลยแหละรอก่อนน้าา😺เจ้ามนุษย์🫠",time:new Date().toISOString()};
+  list[loadingIndex]={from:"bot",text:"เจ้ามนุษย์ข้าไปก่อนน้าาหมดโควต้าวันนี้แล้วบายนะ🫠😁😺🐶",time:new Date().toISOString()};
   persist();renderChat();toast(error.message||"เชื่อมต่อ AI ไม่สำเร็จ");
  }finally{
   input.disabled=false;$("sendBtn").disabled=false;input.focus();
