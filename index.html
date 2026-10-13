@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#d9d0f4">
-<title>ความรักผ่านดาว (Love On Star)</title>
+<title>ความรักผ่านดวงดาว (Love On Star)</title>
 <style>
 :root{--ink:#292052;--muted:#6e6596;--orange:#f28a2f;--line:#d7cdee}
 *{box-sizing:border-box}
@@ -72,7 +72,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 <button class="active" data-tab="home">🌌 จักรวาล</button>
 <button data-tab="profile">🐾 ประวัติน้อง</button>
 <button data-tab="radio">📻 วิทยุ</button>
-<button data-tab="chat">💬 แชต AI</button>
+<button data-tab="chat">💬 แชท AI</button>
 <button data-tab="signal">✨ Signal Card</button>
 </nav>
 
@@ -90,7 +90,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 <button class="btn" style="background:#7650ca" onclick="setPet('cat');showTab('profile')">เปิด CAT STAR</button>
 </div>
 </div>
-<p style="text-align:center;font-weight:800">🌍 สถานีวิทยุข้ามดาว · RX-77</p>
+<p style="text-align:center;font-weight:800">🌍 สถานีวิทยุข้ามดาว · LV-67</p>
 </div>
 <div class="card">
 <h2 class="title">🌠 สัญญาณล่าสุด</h2>
@@ -165,8 +165,8 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 
 <section id="chat" class="page hidden">
 <div class="card">
-<h2 class="title">💬 ห้องแชต Love On Star AI</h2>
-<p class="muted">แชตกับ Gemini AI ผ่าน Cloudflare Worker ประวัติจะเก็บในเบราว์เซอร์เครื่องนี้</p>
+<h2 class="title">💬 ห้องแชท Love On Star AI</h2>
+<p class="muted">แชทกับ Gemini AI ผ่าน Cloudflare Worker ประวัติจะเก็บในเบราว์เซอร์เครื่องนี้</p>
 <div>
 <button class="pill active" id="chatDog" onclick="setPet('dog')">🐶 DOG STAR</button>
 <button class="pill" id="chatCat" onclick="setPet('cat')">🐱 CAT STAR</button>
@@ -176,6 +176,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 <button onclick="putChat('วันนี้คิดถึงนะ')">วันนี้คิดถึงนะ</button>
 <button onclick="putChat('ช่วยเล่าเรื่องน่ารัก ๆ เกี่ยวกับน้องให้ฟังหน่อย')">เล่าเรื่องน่ารัก ๆ</button>
 <button onclick="putChat('ช่วยจำเรื่องราวของน้องจากประวัติที่บันทึกไว้')">คุยเรื่องความทรงจำ</button>
+<button onclick="putChat('บนดาวสบายไหม')">บนดาวสบายไหม</button>
 </div>
 <div class="chat-input">
 <input id="chatInput" placeholder="พิมพ์ข้อความถึง Love On Star AI..." maxlength="3000">
@@ -336,7 +337,7 @@ async function sendChat(){
   list[loadingIndex]={from:"bot",text:data.reply,time:new Date().toISOString()};
   persist();renderChat();
  }catch(error){
-  list[loadingIndex]={from:"bot",text:"ขอโทษ นะตอนนี้มีคนใช้งานน้อง Ai โมเดลนี้เยอะมากๆเลยแหละรอก่อนน้าา😺",time:new Date().toISOString()};
+  list[loadingIndex]={from:"bot",text:"ขอโทษ นะตอนนี้มีคนใช้งานน้อง Ai โมเดลนี้เยอะมากๆเลยแหละรอก่อนน้าา😺เจ้ามนุษย์🫠",time:new Date().toISOString()};
   persist();renderChat();toast(error.message||"เชื่อมต่อ AI ไม่สำเร็จ");
  }finally{
   input.disabled=false;$("sendBtn").disabled=false;input.focus();
@@ -378,7 +379,7 @@ function scanSignal(){
  radioOn=true;$("air").textContent="ON AIR";
  $("radioStatus").textContent="กำลังค้นหาสัญญาณจาก "+(petType==="dog"?"DOG STAR":"CAT STAR")+"…";
  drawWave();
- setTimeout(()=>{$("radioStatus").textContent="ตรวจพบสัญญาณ (โหมดจำลอง)";toast("ตรวจพบสัญญาณจากดาวแล้ว!")},900);
+ setTimeout(()=>{$("radioStatus").textContent="ตรวจพบสัญญาณ (โหมดจำลอง)";toast("ตรวจพบสัญญาณจากดาวแล้ว! น้องพูดว่า : เจ้ามนุษย์ข้าคิดถึงน้า😢")},900);
 }
 function toggleRadio(){
  radioOn=!radioOn;$("air").textContent=radioOn?"ON AIR":"STANDBY";
@@ -426,7 +427,7 @@ function downloadCard(){
   img.onerror=draw;img.src=p.photo;
  }else{ctx.font="140px sans-serif";ctx.fillText(petType==="dog"?"🐶":"🐱",450,365);draw()}
 }
-$("musicBtn")?.addEventListener("click",()=>toast("เวอร์ชันนี้ยังไม่มีเสียงเพลงจริง 🎵"));
+$("musicBtn")?.addEventListener("click",()=>toast("เวอร์ชันนี้ยังไม่มีเสียงเพลง 🎵"));
 window.addEventListener("resize",drawWave);
 fillProfile();renderChat();drawWave();updateSignalCard();
 </script>
